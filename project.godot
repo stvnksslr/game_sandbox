@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="space_game"
+run/main_scene="res://tanks/Player.tscn"
 config/icon="res://icon.png"
 
 [display]

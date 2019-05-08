@@ -1,0 +1,34 @@
+kind: pipeline
+name: export
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: linux
+  image: barichello/godot-ci:3.1.1
+  commands:
+  - mkdir -v -p build/linux
+  - mkdir -v -p build/windows
+  - mkdir -v -p build/mac
+  - mkdir -v -p build/web
+  - "godot -v --export \"Linux/X11\" ./build/linux/$EXPORT_NAME.x86_64"
+
+- name: windows
+  image: barichello/godot-ci:3.1.1
+  commands:
+  - mkdir -v -p build/linux
+  - mkdir -v -p build/windows
+  - mkdir -v -p build/mac
+  - mkdir -v -p build/web
+  - "godot -v --export \"Windows Desktop\" ./build/windows/$EXPORT_NAME.exe"
+
+- name: mac
+  image: barichello/godot-ci:3.1.1
+  commands:
+  - mkdir -v -p build/linux
+  - mkdir -v -p build/windows
+  - mkdir -v -p build/mac
+  - mkdir -v -p build/web
+  - "godot -v --export \"Mac OSX\" ./build/mac/$EXPORT_NAME.zip"
