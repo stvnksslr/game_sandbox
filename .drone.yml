@@ -1,3 +1,4 @@
+---
 kind: pipeline
 name: export
 
@@ -29,3 +30,8 @@ steps:
   - mkdir -v -p build/windows
   - mkdir -v -p build/mac
   - "godot -v --export \"Mac OSX\" ./build/mac/test.zip"
+---
+kind: signature
+hmac: e5c6a89e2c249f556da88135b5cddd3cf83ba1c6beb3a7ee01b8e9b74787e1b5
+
+...
